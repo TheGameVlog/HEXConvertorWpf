@@ -1,0 +1,76 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" x:Class="MainWindow"
+    Title="Color Convertor" Height="301" ResizeMode="NoResize" Width="610" Icon="icon-colorzilla.ico" BorderThickness="1" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" xmlns:my="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" xmlns:my1="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" xmlns:my2="http://schemas.microsoft.com/wpf/2008/toolkit">
+    <Window.Resources>
+        <ControlTemplate x:Key="TextBoxBorder" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Label Content="Color Convertor" Height="33" Margin="8,8,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="18.667" FontWeight="Bold" FontFamily="Segoe UI" HorizontalAlignment="Left" Width="244"/>
+        <Expander x:Name="HEXRGB"  Header="HEX To RBG" Margin="201,56,0,0" Width="187" FontWeight="Bold" Height="192" BorderBrush="Black" IsExpanded="True" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid Height="163">
+                <Label x:Name="labelR" Content="Red" Foreground="Red"  HorizontalAlignment="Left" Height="25" Margin="7,62,0,0" VerticalAlignment="Top" Width="65" d:LayoutOverrides="VerticalAlignment" />
+                <TextBox AutomationProperties.HelpText="Generated Red Code" Template="{StaticResource TextBoxBorder}" x:Name="HtxtR" HorizontalAlignment="Left" Height="22" Margin="59,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62.131" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="2" MaxLength="3" IsReadOnly="True" />
+                <Label x:Name="label_Copy11" Content="Green" Foreground="Green"  HorizontalAlignment="Left" Height="25" Margin="7,91,0,0" VerticalAlignment="Top" Width="65" d:LayoutOverrides="VerticalAlignment" />
+                <Label x:Name="label_Copy12" Content="Blue" Foreground="Blue"  HorizontalAlignment="Left" Height="25" Margin="7,120,0,0" VerticalAlignment="Top" Width="65" />
+                <Label x:Name="label_Copy22" Content="HEX" HorizontalAlignment="Left" Height="25" Margin="6,6,0,0" VerticalAlignment="Top" Width="65" />
+                <TextBox AutomationProperties.HelpText="Generated Green Code" Template="{StaticResource TextBoxBorder}" x:Name="HtxtG" HorizontalAlignment="Left" Height="22" Margin="59,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62.131" BorderThickness="2" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" MaxLength="3" IsReadOnly="True" />
+                <TextBox AutomationProperties.HelpText="Generated Blue Code" Template="{StaticResource TextBoxBorder}" x:Name="HtxtB" HorizontalAlignment="Left" Height="22" Margin="59,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62.131" BorderThickness="2" d:LayoutOverrides="HorizontalAlignment" MaxLength="3" IsReadOnly="True" />
+                <TextBox AutomationProperties.HelpText="Enter HEX Code" Template="{StaticResource TextBoxBorder}" x:Name="HtxtHex" HorizontalAlignment="Left" Margin="8,27,0,0" TextWrapping="Wrap" Text="" Width="94" BorderThickness="2" Height="22" VerticalAlignment="Top" IsReadOnly="False" MaxLength="7" />
+                <Label Content="Sample" Height="47" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="108,7,11,109" Name="hlblSample" Panel.ZIndex="0" TextOptions.TextHintingMode="Animated" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" />
+            </Grid>
+        </Expander>
+        <Expander AutomationProperties.HelpText="Use this panel to convert RGB to HEX" x:Name="RBGHex" Header="RGB To HEX" Margin="8,55,0,0" HorizontalAlignment="Left" Width="187" FontWeight="Bold" Height="192" BorderBrush="Black" IsExpanded="True" VerticalAlignment="Top">
+            <Grid Height="163">
+                <Label x:Name="label" Content="_Red" Foreground="Red"  HorizontalAlignment="Left" Height="25" Margin="8,8,0,0" VerticalAlignment="Top" Width="65" d:LayoutOverrides="VerticalAlignment">
+                </Label>
+                <TextBox AutomationProperties.HelpText="Enter Red Code" Template="{StaticResource TextBoxBorder}" x:Name="txtR" HorizontalAlignment="Left" Height="22" Margin="74.869,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62.131" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="2" MaxLength="3" />
+                <Label x:Name="label_Copy" Content="Green" Foreground="Green" HorizontalAlignment="Left" Height="25" Margin="8,37,0,0" VerticalAlignment="Top" Width="65" d:LayoutOverrides="VerticalAlignment"/>
+                <Label x:Name="label_Copy1" Content="Blue" Foreground="Blue" HorizontalAlignment="Left" Height="25" Margin="8,66,0,0" VerticalAlignment="Top" Width="65"/>
+                <Label x:Name="label_Copy2" Content="HEX" HorizontalAlignment="Left" Height="25" Margin="6,92,0,0" VerticalAlignment="Top" Width="65"/>
+                <TextBox AutomationProperties.HelpText="Enter Green Code" Template="{StaticResource TextBoxBorder}" x:Name="txtG" HorizontalAlignment="Left" Height="22" Margin="74.869,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62.131" BorderThickness="2" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" MaxLength="3" />
+                <TextBox AutomationProperties.HelpText="Enter Blue Code" Template="{StaticResource TextBoxBorder}" x:Name="txtB" HorizontalAlignment="Left" Height="22" Margin="74.869,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62.131" BorderThickness="2" d:LayoutOverrides="HorizontalAlignment" MaxLength="3" />
+                <TextBox AutomationProperties.HelpText="Generated HEX Code" Template="{StaticResource TextBoxBorder}" x:Name="txtHex" HorizontalAlignment="Left" Margin="8,129,0,0" TextWrapping="Wrap" Text="" Width="94" BorderThickness="2" Height="22" VerticalAlignment="Top" IsReadOnly="True" />
+                <Button x:Name="button_Copy"  Margin="141,8,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36" d:LayoutOverrides="VerticalAlignment" AutomationProperties.HelpText="Pick Color Button" Cursor="Pen" IsHitTestVisible="True" Background="{x:Null}" Focusable="True">
+                    <Button.Content>
+                        <Image Source="icon-colorzilla.jpg" Stretch="Fill"/>
+                    </Button.Content>
+                </Button>
+                <Label Content="Sample" Height="47" HorizontalAlignment="Center" Margin="113,104,6,12" x:Name="lblSample" VerticalAlignment="Center" Width="66" TextOptions.TextHintingMode="Animated" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="0" />
+            </Grid>
+        </Expander>
+        <Expander BorderBrush="Black" FontWeight="Bold" Header="HEX To CMYK" Height="192" HorizontalAlignment="Left" IsExpanded="True" Margin="394,56,0,0" Name="HexCMYK" VerticalAlignment="Top" Width="187">
+            <Grid Height="163">
+                <Label Content="HEX" Height="25" HorizontalAlignment="Left" Margin="6,4,0,0" Name="Label4" VerticalAlignment="Top" Width="65" />
+                <Label Content="Cyan" Height="28" HorizontalAlignment="Left" Margin="7,49,0,0" Name="Label1" VerticalAlignment="Top" Width="65" Foreground="Cyan" />
+                <TextBox AutomationProperties.HelpText="Generated Cyan Code" BorderThickness="2" Height="22" HorizontalAlignment="Left" IsReadOnly="True" Margin="67,52,0,0" MaxLength="3" Name="txtC" Template="{StaticResource TextBoxBorder}" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="62.131" />
+                <Label Content="Magenta" Foreground="Magenta" Height="28" HorizontalAlignment="Left" Margin="7,78,0,0" Name="Label2" VerticalAlignment="Top" Width="65" />
+                <Label Content="Yellow" Foreground="Yellow" Height="25" HorizontalAlignment="Left" Margin="7,107,0,0" Name="Label3" VerticalAlignment="Top" Width="65" />
+                <Label Content="blacK" Height="25" HorizontalAlignment="Left" Margin="6,134,0,0" Name="Label6" VerticalAlignment="Top" Width="65" />
+                <TextBox AutomationProperties.HelpText="Generated Magenta Code" BorderThickness="2" Height="22" HorizontalAlignment="Left" IsReadOnly="True" Margin="67,81,0,0" MaxLength="3" Name="txtM" Template="{StaticResource TextBoxBorder}" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="62.131" />
+                <TextBox AutomationProperties.HelpText="Generated Yellow Code" BorderThickness="2" Height="22" HorizontalAlignment="Left" IsReadOnly="True" Margin="67,110,0,0" MaxLength="3" Name="txtY" Template="{StaticResource TextBoxBorder}" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="62.131" />
+                <TextBox AutomationProperties.HelpText="Enter HEX code" BorderThickness="2" Height="22" HorizontalAlignment="Left" IsReadOnly="False" Margin="8,25,0,0" MaxLength="7" Name="txtHexToCMYK" Template="{StaticResource TextBoxBorder}" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" />
+                <Label Content="Sample" Height="47" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="115,1,4,115" Name="lblCmyk" Panel.ZIndex="0" TextOptions.TextHintingMode="Animated" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" />
+
+                <TextBox AutomationProperties.HelpText="Generated Black Code" BorderThickness="2" Height="22" HorizontalAlignment="Left" IsReadOnly="True" Margin="66,137,0,0" MaxLength="3" Name="txtK" Template="{StaticResource TextBoxBorder}" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="62.131" />
+            </Grid>
+        </Expander>
+        <Button Height="35" HorizontalAlignment="Left" Margin="545,6,0,0" Name="btnAbout" VerticalAlignment="Top" Width="35" Background="{x:Null}" >
+            <Button.Content>
+                <Image Source="/HEXConvertorWpf;component/Images/Info%20about.png" Stretch="Fill" Name="Image1" />
+            </Button.Content>
+        </Button>
+        <ToggleButton Background="{x:Null}" Height="35" HorizontalAlignment="Left" Margin="500,6,0,0" Name="Button1" VerticalAlignment="Top" Width="35">
+            <Image Name="Image2" Source="/HEXConvertorWpf;component/Images/question.png" Stretch="Fill" />
+        </ToggleButton>
+    </Grid>
+</Window>
